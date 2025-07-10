@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    tools {
+        // Define build tools like Maven, Node.js, etc., if needed
+    }
+
+    environment {
+        // Define any environment variables
+    }
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/yourusername/your-repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // For example: sh 'npm install' or 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // sh 'npm test' or 'mvn test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Run deployment script or command
+            }
+        }
+    }
+}
